@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology Case File: Jack Merridew</title>
+    <style>
+        :root {
+            --paper: #fdfcf0;
+            --ink: #1a1a1a;
+            --folder: #c5a67c;
+            --stamp: #b22222;
+            --highlight: #e6dec5;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        /* The Outer Folder Container */
+        .folder {
+            background-color: var(--folder);
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            border-radius: 8px 15px 15px 8px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.6);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Tabs */
+        .sidebar {
+            width: 220px;
+            background-color: #b3936a;
+            padding-top: 60px;
+            border-right: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .tab-btn {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            background: none;
+            text-align: left;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            color: #4a3b29;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover { background: rgba(255,255,255,0.1); }
+
+        .tab-btn.active {
+            background-color: var(--paper);
+            color: var(--ink);
+            width: calc(100% + 2px);
+            position: relative;
+            z-index: 5;
+            box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* The Paper Sheet */
+        .paper {
+            flex-grow: 1;
+            background-color: var(--paper);
+            min-height: 850px;
+            padding: 60px;
+            position: relative;
+            box-shadow: inset 5px 0 15px rgba(0,0,0,0.05);
+        }
+
+        /* Visual Flourishes */
+        .stamp {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+            border: 4px solid var(--stamp);
+            color: var(--stamp);
+            padding: 8px 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            transform: rotate(12deg);
+            opacity: 0.8;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        header {
+            border-bottom: 2px solid #333;
+            margin-bottom: 40px;
+        }
+
+        h1 { margin: 0; font-size: 1.8rem; text-transform: uppercase; }
+        .sub-header { margin-top: 5px; font-size: 0.9rem; color: #555; }
+
+        .content-section { display: none; animation: fadeIn 0.4s; }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Data Blocks */
+        .data-point { margin-bottom: 30px; line-height: 1.5; }
+        .label {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+
+        .quote-box {
+            background-color: var(--highlight);
+            padding: 15px;
+            border-left: 5px solid #ccc;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .profile-card {
+            border: 2px solid #000;
+            padding: 25px;
+            background: #fff;
+        }
+
+        hr { border: 0; border-top: 1px dashed #999; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+<div class="folder">
+    <div class="sidebar">
+        <button class="tab-btn active" onclick="showTab(event, 'tab-id')">Subject Identification</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-1')">Entries: Ch 1-2</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-2')">Entries: Ch 3-4</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-3')">Entries: Ch 5-6</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-4')">Entries: Ch 7-8</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-5')">Entries: Ch 9-10</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-6')">Entries: Ch 11-12</button>
+        <button class="tab-btn" onclick="showTab(event, 'tab-final')">Final Psychological Profile</button>
+    </div>
+
+    <div class="paper">
+        <div class="stamp">Classified</div>
+        
+        <header>
+            <h1>BEHAVIORAL CASE FILE: Jack Merridew</h1>
+            <div class="sub-header">Case ID: LOTF-002 (Primary Aggressor) | Lead Psychologist: [Your Name]</div>
+        </header>
+
+        <div id="tab-id" class="content-section active">
+            <div class="data-point">
+                <span class="label">Initial Assessment</span>
+                The subject initially presents as a high-functioning leader within a structured hierarchy (the choir). He displays a strong desire for control and a fragile ego when his authority is challenged by the democratic election of another subject (Ralph).
+            </div>
+            <div class="data-point">
+                <span class="label">Physical Description</span>
+                Tall, thin, and bony; red hair; face was crumpled and freckled, and ugly without silliness; light blue eyes that state ready to turn to anger.
+            </div>
+        </div>
+
+        <div id="tab-1" class="content-section">
+            <h2>Checkpoint: First Impressions</h2>
+            <div class="data-point">
+                <span class="label">Behavioral Observation</span>
+                Jack is unable to bring himself to kill a trapped piglet, despite brandishing a knife and claiming dominance.
+            </div>
+            <div class="data-point">
+                <span class="label">Textual Evidence</span>
+                <div class="quote-box">"They knew very well why he hadn’t: because of the enormity of the knife descending and cutting into living flesh; because of the unbearable blood" (Golding 31).</div>
+            </div>
+            <div class="data-point">
+                <span class="label">Psychological Interpretation</span>
+                The subject is currently governed by his Superego. His civilized upbringing and societal conditioning create a psychological barrier against committing an act of violence.
+            </div>
+            <div class="data-point">
+                <span class="label">Connection to Concept</span>
+                Morality/Civilized Conditioning. Even in the absence of adults, the internal "rules" of his previous life dictate his hesitation.
+            </div>
+            <div class="data-point">
+                <span class="label">Prediction</span>
+                Jack’s embarrassment over this "failure" will likely drive him to overcompensate with future aggression to prove his masculinity.
+            </div>
+        </div>
+
+        <div id="tab-2" class="content-section">
+            <h2>Checkpoint: Early Leadership Struggles</h2>
+            <div class="data-point"><span class="label">Observation</span> Jack creates a "mask" using clay and charcoal, which fundamentally alters his behavior and confidence.</div>
+            <div class="data-point"><span class="label">Evidence</span> <div class="quote-box">"He looked in astonishment, no longer at himself but at an awesome stranger... the mask was a thing on its own, behind which Jack hid, liberated from shame and self-consciousness" (Golding 63-64).</div></div>
+            <div class="data-point"><span class="label">Interpretation</span> The mask provides anonymity. By hiding his physical identity, Jack creates a psychological distance between his "civilized self" and his "primitive actions."</div>
+            <div class="data-point"><span class="label">Concept</span> Loss of Identity / Deindividuation. The mask allows the subject to act on impulses he would normally suppress.</div>
+            <div class="data-point"><span class="label">Prediction</span> As the mask becomes a permanent fixture, Jack will likely abandon the rules of the group entirely.</div>
+        </div>
+
+        <div id="tab-3" class="content-section">
+            <h2>Checkpoint: Fear and the Beast</h2>
+            <div class="data-point"><span class="label">Observation</span> Jack uses the fear of "The Beast" to undermine Ralph’s leadership, offering protection through hunting.</div>
+            <div class="data-point"><span class="label">Evidence</span> <div class="quote-box">"Bollocks to the rules! We’re strong—we hunt! If there’s a beast, we’ll hunt it down!" (Golding 91).</div></div>
+            <div class="data-point"><span class="label">Interpretation</span> Jack is exploiting fear to establish a "Strongman" style of leadership. He recognizes that panic makes the other subjects easier to manipulate.</div>
+            <div class="data-point"><span class="label">Concept</span> Aggression as a Defense Mechanism. Jack redirects the group’s fear into external violence to maintain his status.</div>
+            <div class="data-point"><span class="label">Prediction</span> Jack will eventually create a splinter group (a tribe) based purely on the promise of protection and meat.</div>
+        </div>
+
+        <div id="tab-4" class="content-section">
+            <h2>Checkpoint: Power Struggle</h2>
+            <div class="data-point"><span class="label">Observation</span> After failing to be voted in as leader, Jack formally defects and forms a new tribe.</div>
+            <div class="data-point"><span class="label">Evidence</span> <div class="quote-box">"I’m not going to play any longer. Not with you... I’m going off by myself" (Golding 127).</div></div>
+            <div class="data-point"><span class="label">Interpretation</span> This is a total rejection of the Ego (rationality) in favor of the Id (instant gratification). Jack views the island as a playground.</div>
+            <div class="data-point"><span class="label">Concept</span> Group Pressure/Leadership. Jack creates a "competitive" social structure where loyalty is bought with resources.</div>
+            <div class="data-point"><span class="label">Prediction</span> The lack of oversight in Jack's tribe will lead to an escalation from hunting animals to hunting humans.</div>
+        </div>
+
+        <div id="tab-5" class="content-section">
+            <h2>Checkpoint: Moral Collapse</h2>
+            <div class="data-point"><span class="label">Observation</span> Jack leads a ritual dance that culminates in the collective murder of Simon.</div>
+            <div class="data-point"><span class="label">Evidence</span> <div class="quote-box">"There were no words, and no movements but the tearing of teeth and claws" (Golding 153).</div></div>
+            <div class="data-point"><span class="label">Interpretation</span> Jack is utilizing Cognitive Dissonance. To protect his psyche from guilt, he re-frames the victim as a monster.</div>
+            <div class="data-point"><span class="label">Concept</span> Mob Mentality. The subject uses the rhythmic chant to bypass individual moral judgement.</div>
+            <div class="data-point"><span class="label">Prediction</span> With the "blood barrier" broken, the subject will now use lethal force to eliminate his final rival, Ralph.</div>
+        </div>
+
+        <div id="tab-6" class="content-section">
+            <h2>Checkpoint: Final Psychological State</h2>
+            <div class="data-point"><span class="label">Observation</span> Jack orders the destruction of the conch and initiates a full-scale "manhunt" to execute Ralph.</div>
+            <div class="data-point"><span class="label">Evidence</span> <div class="quote-box">"Viciously, with full intention, he hurled his spear at Ralph... the conch exploded into a thousand white fragments" (Golding 181).</div></div>
+            <div class="data-point"><span class="label">Interpretation</span> Total Moral Collapse. The Id has completely overwhelmed the Superego. He no longer seeks to lead; he seeks only to destroy.</div>
+            <div class="data-point"><span class="label">Concept</span> Loss of Identity. Jack is no longer a student; he is "The Chief," a symbol of primal chaos.</div>
+            <div class="data-point"><span class="label">Prediction</span> If not for intervention, the subject would have burned the island to the ground, destroying his own food source to kill one enemy.</div>
+        </div>
+
+        <div id="tab-final" class="content-section">
+            <h2>Final Psychological Profile</h2>
+            <div class="profile-card">
+                <div class="data-point"><span class="label">Evolution of Subject</span> Jack’s journey is a regression from Civilization to Savagery. He moved from following rules, to hiding behind a mask, to becoming the architect of a violent society.</div>
+                <div class="data-point"><span class="label">Influencing forces</span> The primary influences were Deindividuation, The Id, and Mob Mentality. These acted as a "liberator" from constraints.</div>
+                <div class="data-point"><span class="label">Human Nature Conclusion</span> The subject suggests that human nature contains a latent "beast"—a primitive drive for power—that is only kept in check by societal rules.</div>
+                <hr>
+                <p><strong>Diagnostic Label:</strong> Primitive Dominance Disorder / Total Moral Erosion.</p>
+                <p><strong>Treatment:</strong> Long-term institutionalization; prognosis is poor.</p>
+                <p><strong>Final Note:</strong> Subject wept at the end only because his power was stripped by adult authority.</p>
+                <p><strong>Signature:</strong> ____________________ | <strong>Date:</strong> May 15, 2026</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showTab(evt, tabId) {
+        var i, content, tabs;
+        content = document.getElementsByClassName("content-section");
+        for (i = 0; i < content.length; i++) {
+            content[i].classList.remove("active");
+        }
+        tabs = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
