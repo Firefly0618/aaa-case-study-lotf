@@ -165,6 +165,24 @@
         }
 
         .menu-card:hover { background: var(--highlight); border-color: var(--stamp); }
+
+        .final-profile-box {
+            background: #ffffff;
+            border: 1px solid #000;
+            padding: 30px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        
+        .final-profile-box h3 {
+            text-decoration: underline;
+            margin-top: 25px;
+            font-size: 1.1rem;
+        }
+
+        .final-profile-box p, .final-profile-box li {
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -179,6 +197,8 @@
         <button class="tab-btn" id="btn-4" onclick="showTab(event, 'tab-4')">Checkpoint 4</button>
         <button class="tab-btn" id="btn-5" onclick="showTab(event, 'tab-5')">Checkpoint 5</button>
         <button class="tab-btn" id="btn-6" onclick="showTab(event, 'tab-6')">Checkpoint 6</button>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
+        <button class="tab-btn" id="btn-final" onclick="showTab(event, 'tab-final')">🏁 FINAL ANALYSIS</button>
     </div>
 
     <div class="paper">
@@ -194,24 +214,15 @@
             <p>This is Ralph's psychological study based on the action he did during The Lord of the Flies and marked as checkpoint every 2 chapters.</p>
             
             <div class="home-grid">
-                <div class="menu-card" onclick="triggerTab('btn-1')">
-                    <span>Checkpoint 1</span>First Impressions
-                </div>
-                <div class="menu-card" onclick="triggerTab('btn-2')">
-                    <span>Checkpoint 2</span>Early Leadership Struggles
-                </div>
-                <div class="menu-card" onclick="triggerTab('btn-3')">
-                    <span>Checkpoint 3</span>Fear and the Beast
-                </div>
-                <div class="menu-card" onclick="triggerTab('btn-4')">
-                    <span>Checkpoint 4</span>Power Struggle
-                </div>
-                <div class="menu-card" onclick="triggerTab('btn-5')">
-                    <span>Checkpoint 5</span>Moral Collapse
-                </div>
-                <div class="menu-card" onclick="triggerTab('btn-6')">
-                    <span>Checkpoint 6</span>Final Psychological State
-                </div>
+                <div class="menu-card" onclick="triggerTab('btn-1')"><span>Checkpoint 1</span>First Impressions</div>
+                <div class="menu-card" onclick="triggerTab('btn-2')"><span>Checkpoint 2</span>Early Leadership Struggles</div>
+                <div class="menu-card" onclick="triggerTab('btn-3')"><span>Checkpoint 3</span>Fear and the Beast</div>
+                <div class="menu-card" onclick="triggerTab('btn-4')"><span>Checkpoint 4</span>Power Struggle</div>
+                <div class="menu-card" onclick="triggerTab('btn-5')"><span>Checkpoint 5</span>Moral Collapse</div>
+                <div class="menu-card" onclick="triggerTab('btn-6')"><span>Checkpoint 6</span>Final Psychological State</div>
+            </div>
+            <div class="menu-card" style="margin-top: 15px; width: 100%; box-sizing: border-box;" onclick="triggerTab('btn-final')">
+                <span>Summary Report</span>Final Psychological Analysis
             </div>
         </div>
 
@@ -225,6 +236,23 @@
                 <tr><td class="label-cell">Prediction</td><td class="data-cell" id="pre"></td></tr>
             </table>
         </div>
+
+        <div id="tab-final" class="content-section">
+            <h2>Final Analysis</h2>
+            <div class="final-profile-box">
+                <h3>I. Character Evolution</h3>
+                <p>Ralph’s transformation is a journey from optimistic person to cynical realism. In Checkpoints 1 and 2, he represents a democratic Ego, trusting in rules like and everyone will follow them. However, as social order fails, he faces a crisis of the effencicy of rules. By Checkpoint 6, he got traumatized by the evilness in human and his belief of human goodness shattered, resulting in the loss of innocence and will recognize of rest of life.</p>
+                
+                <h3>II. Dominant Psychological Forces</h3>
+                <ul>
+                    <li><strong>The Ego:</strong> Ralph acts as the group's leader, constantly balancing the long-term surviva include fire and shelter, and against the Id's immediate desire for meat.</li>
+                    <li><strong>The Shadow & Mob Mentality:</strong> Ralph's realization in Checkpoint 4 that he is capable of wounding and enjoyment during the hunt, which proves the darkness in him was exposed present despite the order destructs.</li>
+                </ul>
+
+                <h3>III. Statement on Human Nature</h3>
+                <p>Ralph’s character suggests that evil is not physically a beast, but an internal potential within all humans. Even though he values logics and order, with out a society to maintain human civilized, the darkness of human can take over.</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -232,7 +260,7 @@
     const checkpoints = [
         { 
             title: "First Impressions (Ch 1-2)", 
-            obs: "Ralpu use the conch to organize the people and establish a democratic structure by having meetings on the Island.", 
+            obs: "Ralph uses the conch to organize the people and establish a democratic structure by having meetings on the Island.", 
             ev: "\"We can't have everybody talking at once. We'll have to have 'Hands up' like at school\" (Golding 33).", 
             int: "Ralph applies to the definition of Ego, he attempts to create a democratic structure and have meetings just like in school." ,
             con: "Ralph tried to balance the boys and giving tasks for people to do in this situation. He use the conch to organize the group and waiting for rescues that will eventually come.", 
@@ -275,7 +303,7 @@
             obs: "Ralph was hunted by Jack, and eventually got rescued, the experiences caused a emotional breakdown on him.", 
             ev: "\"Ralph wept for the end of innocence, the darkness of man’s heart\" (Golding 202).", 
             int: "Complete psychological collapse through the self-destruction of the island society, the realization that the darkness found on the island is a human trait.", 
-            con: " Ralph connects to loss of innocence because his crying shows he now understands that evil lives inside everyone.", 
+            con: "Ralph connects to loss of innocence because his crying shows he now understands that evil lives inside everyone.", 
             pre: "While physically rescued by the officer, the people will remain mentally scarred by the evilness discovered while on the island." 
         }
     ];
@@ -287,6 +315,9 @@
         if (tabId === 'tab-home') {
             document.getElementById('tab-home').classList.add('active');
             document.getElementById('btn-home').classList.add('active');
+        } else if (tabId === 'tab-final') {
+            document.getElementById('tab-final').classList.add('active');
+            document.getElementById('btn-final').classList.add('active');
         } else {
             const index = parseInt(tabId.split('-')[1]) - 1;
             const data = checkpoints[index];
@@ -299,7 +330,8 @@
             document.getElementById('pre').innerText = data.pre;
             
             document.getElementById('checkpoint-view').classList.add('active');
-            if (evt) evt.currentTarget.classList.add('active');
+            const btnId = 'btn-' + (index + 1);
+            document.getElementById(btnId).classList.add('active');
         }
     }
 
@@ -308,3 +340,4 @@
 
 </body>
 </html>
+
